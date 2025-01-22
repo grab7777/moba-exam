@@ -21,7 +21,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
-import ch.grab777.examprep.QuestionViewModel
+import ch.grab777.examprep.viewmodels.QuestionViewModel
 import ch.grab777.examprep.RadioButtonSingleSelection
 import ch.grab777.examprep.ui.Button
 import ch.grab777.examprep.ui.CustomAlertDialog
@@ -55,6 +55,7 @@ fun QuestionScreen(
                 options = model.getAnswerTexts(),
                 model = model
             )
+            Button(text = "Contacts", onClick = { navController.navigate("contacts") })
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.SpaceBetween,

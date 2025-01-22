@@ -11,9 +11,12 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import ch.grab777.examprep.screens.ContactsScreen
 import ch.grab777.examprep.ui.theme.MyApplicationTheme
 import ch.grab777.examprep.screens.QuestionScreen
 import ch.grab777.examprep.screens.SuccessScreen
+import ch.grab777.examprep.viewmodels.QuestionViewModel
+import ch.grab777.examprep.viewmodels.SuccessViewModel
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,6 +41,12 @@ class MainActivity : ComponentActivity() {
                                 innerPadding,
                                 model = successViewModel,
                                 navController = navController
+                            )
+                        }
+                        composable("contacts") {
+                            ContactsScreen(
+                                innerPadding,
+                                contentResolver = contentResolver,
                             )
                         }
                     }

@@ -1,4 +1,4 @@
-package ch.grab777.examprep
+package ch.grab777.examprep.viewmodels
 
 import android.app.Application
 import android.util.Log
@@ -17,6 +17,7 @@ import androidx.room.PrimaryKey
 import androidx.room.Query
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import ch.grab777.examprep.QuoteBacking
 import com.android.volley.Request
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley

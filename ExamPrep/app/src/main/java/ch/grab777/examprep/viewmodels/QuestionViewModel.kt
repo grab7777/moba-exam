@@ -1,4 +1,4 @@
-package ch.grab777.examprep
+package ch.grab777.examprep.viewmodels
 
 import android.app.Application
 import android.content.Context
@@ -9,6 +9,7 @@ import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.AndroidViewModel
 import androidx.navigation.NavController
+import ch.grab777.examprep.Question
 import com.beust.klaxon.Klaxon
 import java.io.BufferedReader
 import java.io.InputStreamReader

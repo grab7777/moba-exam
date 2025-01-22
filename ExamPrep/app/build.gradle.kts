@@ -51,6 +51,7 @@ android {
 }
 
 dependencies {
+    implementation(libs.accompanist.permissions)                // Permissions
     implementation(libs.androidx.room.runtime)                  // for SQLite / Room
     annotationProcessor(libs.androidx.room.compiler)            // for SQLite / Room
     kapt("androidx.room:room-compiler:2.6.1")                   // for SQLite / Room

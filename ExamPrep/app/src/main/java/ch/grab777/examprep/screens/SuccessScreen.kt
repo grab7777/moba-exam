@@ -13,7 +13,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
-import ch.grab777.examprep.SuccessViewModel
+import ch.grab777.examprep.viewmodels.SuccessViewModel
 import ch.grab777.examprep.ui.Button
 
 @Composable
