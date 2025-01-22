@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="de-CH">
+
+<head>
+    <link rel="stylesheet" type="text/css" href="api-style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API's demo</title>
+    <script src="apis.js"></script>
+</head>
+
+<body>
+    <main>
+        <div class="geolocation card">
+            <div class="title">
+                <h1>Geolocation</h1>
+            </div>
+            <div class="iframe">
+                <button onClick="locateMe()">Locate me</button>
+                <iframe width="100%" height="300px" id="geolocation-map"
+                    src="https://www.openstreetmap.org/export/embed.html?bbox=8.50496292114258%2C47.34862244571515%2C8.571438789367678%2C47.384868612482634&amp;layer=mapnik"   
+                    style="border: none; transition: all 1s;"></iframe><br />
+                <p id="geolocation-text" hidden></p>
+                <a id="geolocation-link" href="" target="_blank" hidden>Grössere Karte anzeigen</a>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>
