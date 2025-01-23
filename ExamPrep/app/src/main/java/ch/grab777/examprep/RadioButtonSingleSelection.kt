@@ -17,14 +17,14 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.unit.dp
-import ch.grab777.examprep.viewmodels.QuestionViewModel
+import ch.grab777.examprep.viewmodels.CinemaViewModel
 
 
 @Composable
 fun RadioButtonSingleSelection(
     modifier: Modifier = Modifier,
     options: List<String> = listOf("Calls", "Missed", "Friends"),
-    model: QuestionViewModel
+    model: CinemaViewModel
 ) {
     val (selectedOption, onOptionSelected) = remember { mutableStateOf("") }
 
