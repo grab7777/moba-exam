@@ -3125,13 +3125,14 @@ function appendCinema(node) {
   title.textContent = node.name;
   address.textContent = getAddress(node);
   const button = clone.children[1];
-  const url = node.url;
+  const url = node.website;
   console.log(url);
   if (url) {
+    console.log(button);
     button.onClick = console.log(url);
+    button.href = url;
   } else {
-    // weil fast keine URLS im JSON sind, blende ich die Buttons nicht aus
-    // button.hidden = true;
+    button.hidden = true;
   }
   document.getElementsByClassName("cinemas")[0].appendChild(clone);
 }

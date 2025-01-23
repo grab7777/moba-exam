@@ -1,0 +1,18 @@
+{"nodes" : [
+  {"city": "Baden", "housenumber": "22", "postcode": "5400", "street": "Bahnhofstrasse", "amenity": "cinema", "email": "info@sterk.ch", "name": "Kino Sterk", "phone": "+41 56 204 04 00", "screen": "2", "website": "https://www.sterk.ch/", "wheelchair": "limited", "wikidata": "Q35719182", "id": "245455175", "lat": "47.4748718", "lon": "8.3075346"},
+  {"city": "Winterthur", "country": "CH", "housenumber": "13", "postcode": "8400", "street": "Neumarkt", "amenity": "cinema", "check_date:opening_hours": "2023-07-08", "name": "Kiwi", "opening_hours:signed": "no", "wheelchair": "limited", "id": "29455086", "lat": "47.4987786", "lon": "8.7261242",
+    "website": "https://www.google.ch"
+  },
+  {"city": "Bern", "country": "CH", "housenumber": "13", "postcode": "8400", "street": "Neumarkt", "amenity": "cinema", "check_date:opening_hours": "2023-07-08", "name": "Bern Kino", "opening_hours:signed": "no", "wheelchair": "limited", "id": "29455086", "lat": "47.4987786", "lon": "8.7261242",
+    "website": "https://www.google.ch"
+  },
+  {"city": "Basel", "country": "CH", "housenumber": "13", "postcode": "8400", "street": "Neumarkt", "amenity": "cinema", "check_date:opening_hours": "2023-07-08", "name": "Basler Kino", "opening_hours:signed": "no", "wheelchair": "limited", "id": "29455086", "lat": "47.4987786", "lon": "8.7261242",
+    "website": "https://www.google.ch"
+  },
+  {"city": "Basel", "country": "CH", "housenumber": "13", "postcode": "8400", "street": "Neumarkt", "amenity": "cinema", "check_date:opening_hours": "2023-07-08", "name": "Basel Kino 2", "opening_hours:signed": "no", "wheelchair": "limited", "id": "29455086", "lat": "47.4987786", "lon": "8.7261242",
+    "website": "https://www.google.ch"
+  },
+  {"city": "Zürich", "country": "CH", "housenumber": "13", "postcode": "8400", "street": "Neumarkt", "amenity": "cinema", "check_date:opening_hours": "2023-07-08", "name": "Züricher Kino", "opening_hours:signed": "no", "wheelchair": "limited", "id": "29455086", "lat": "47.4987786", "lon": "8.7261242",
+    "website": "https://www.google.ch"
+  }
+]}

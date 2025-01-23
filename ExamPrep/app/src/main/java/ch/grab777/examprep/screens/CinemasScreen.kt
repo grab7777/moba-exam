@@ -77,7 +77,7 @@ fun CinemasScreen(
 @Composable
 fun CinemaInfo(cinema: Cinema) {
     var url = cinema.website
-    val address = "${cinema.street}, ${cinema.postcode} ${cinema.city}"
+    val address = "${cinema.street} ${cinema.housenumber}, ${cinema.postcode} ${cinema.city}"
     Row(
         Modifier
             .padding()
