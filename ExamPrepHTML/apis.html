@@ -25,6 +25,26 @@
                 <a id="geolocation-link" href="" target="_blank" hidden>Grössere Karte anzeigen</a>
             </div>
         </div>
+        <div class="orientation card">
+            <div class="title">
+                <h1>Orientation</h1>
+            </div>
+            <div class="iframe">
+                <p id="orientation-element">↑</p>
+                <button onClick="startOrientation()">Start orientation</button>
+            </div>
+        </div>
+        <div class="motion card">
+            <div class="title">
+                <h1>Motion</h1>
+            </div>
+            <div class="iframe">
+                <p id="motion-element"></p>
+                <div class="motion-bar x" id="motion-bar-x">X</div>
+                <div class="motion-bar y" id="motion-bar-y">Y</div>
+                <button onClick="startMotion()">Start motion</button>
+            </div>
+        </div>
     </main>
 </body>
 

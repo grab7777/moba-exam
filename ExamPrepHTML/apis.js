@@ -11,14 +11,14 @@ function locateMe() {
   }
 }
 
-function getOsmLocationUrl() {}
-
 function fail() {
   alert("failed");
 }
+
 function printLocation() {
   return "Latitude: " + lat + ", Longitude: " + long;
 }
+
 function success(position) {
   lat = position.coords.latitude;
   long = position.coords.longitude;
@@ -40,4 +40,49 @@ function success(position) {
   const linkText = document.getElementById("geolocation-link-text");
   linkText.textContent = url;
   linkText.hidden = false;
+}
+
+function startOrientation() {
+  const el = document.getElementById("orientation-element");
+  if (window.DeviceOrientationEvent) {
+    window.addEventListener(
+      "deviceorientation",
+      function (e) {
+        a = Math.floor(e.alpha);
+        b = Math.floor(e.beta);
+        c = Math.floor(e.gamma);
+        el.style.transform =
+          "rotateZ(" +
+          a +
+          "deg) rotateX(" +
+          b +
+          "deg)" +
+          "rotateY(" +
+          c +
+          "deg)";
+      },
+      true
+    );
+  }
+}
+
+function startMotion() {
+  if (window.DeviceMotionEvent) {
+    window.addEventListener(
+      "devicemotion",
+      function (e) {
+        const element = document.getElementById("motion-element");
+        const barX = document.getElementById("motion-bar-x");
+        const barY = document.getElementById("motion-bar-y");
+        const x = parseFloat(e.acceleration.x).toFixed(3);
+        const y = parseFloat(e.acceleration.y).toFixed(3);
+        barX.style.width = Math.min(e.acceleration.x * 40, 200) + "px";
+        barY.style.width = Math.min(e.acceleration.y * 40, 200) + "px";
+        xPretty = x >= 0 ? "+" + x : x;
+        yPretty = y >= 0 ? "+" + y : y;
+        element.textContent = `x: ${xPretty}, y: ${yPretty}`;
+      },
+      true
+    );
+  }
 }
