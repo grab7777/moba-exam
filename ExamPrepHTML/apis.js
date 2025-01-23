@@ -2,7 +2,12 @@ let lat = 0.0;
 let long = 0.0;
 function locateMe() {
   if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(success, fail);
+    const options = {
+      maximumAge: 5 * 60 * 1000, // reduce need to start geoloc. hardware
+      timeout: 10 * 1000, // don't keep user waiting
+      enableHighAccuracy: false, // true = slower & more akku
+    };
+    navigator.geolocation.getCurrentPosition(success, fail, options);
   }
 }
 
@@ -32,7 +37,7 @@ function success(position) {
   const text = document.getElementById("geolocation-text");
   text.hidden = false;
   text.textContent = printLocation();
-  const linkText = document.createElement("p");
+  const linkText = document.getElementById("geolocation-link-text");
   linkText.textContent = url;
-  text.after(linkText);
+  linkText.hidden = false;
 }
