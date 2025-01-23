@@ -16,11 +16,9 @@ class CinemaViewModel(application: Application) : AndroidViewModel(application) 
 
     private var jsonString: String = ""
     private val fileName = "cinemas.json"
-    var selectedAnswer = mutableStateOf("")
-
-
-    val cinemas = mutableStateListOf<Cinema>()
-
+    val filterValue = mutableStateOf("")
+    val cinemas = mutableStateListOf<Cinema>() // filtered
+    val allCinemas = mutableStateListOf<Cinema>()
 
     init {
         loadJson()
@@ -37,6 +35,18 @@ class CinemaViewModel(application: Application) : AndroidViewModel(application) 
     private fun parseJson() {
         val parsed = Klaxon().parse<Nodes>(jsonString)
         Log.i("Cinemas loaded", parsed?.nodes?.size.toString())
-        cinemas.addAll(parsed!!.nodes)
+        allCinemas.addAll(parsed!!.nodes)
+        cinemas.addAll(parsed.nodes)
+    }
+
+    fun filter() {
+        cinemas.clear()
+        if (filterValue.value == "") {
+            cinemas.addAll(allCinemas)
+        } else {
+            cinemas.addAll(
+                allCinemas.filter { cinema -> !cinema.city.isNullOrEmpty() && cinema.city.lowercase() == filterValue.value.lowercase() }
+            )
+        }
     }
 }

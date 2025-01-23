@@ -16,6 +16,7 @@ import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
@@ -40,13 +41,25 @@ fun CinemasScreen(
     ) {
         Row(Modifier.fillMaxWidth(), Arrangement.Center) {
             Spacer(modifier = Modifier.weight(1f))
-            Button(text = "Alle", active = true, onClick = { Log.i("clicked", "alle") })
+            Button(
+                text = "Alle",
+                active = model.filterValue.value == "",
+                onClick = { model.filterValue.value = ""; model.filter() })
             Spacer(modifier = Modifier.weight(0.1f))
-            Button(text = "Zürich", onClick = { Log.i("clicked", "Zürich") })
+            Button(
+                text = "Zürich",
+                active = model.filterValue.value == "Zürich",
+                onClick = { model.filterValue.value = "Zürich"; model.filter() })
             Spacer(modifier = Modifier.weight(0.1f))
-            Button(text = "Bern", onClick = { Log.i("clicked", "Bern") })
+            Button(
+                text = "Bern",
+                active = model.filterValue.value == "Bern",
+                onClick = { model.filterValue.value = "Bern"; model.filter() })
             Spacer(modifier = Modifier.weight(0.1f))
-            Button(text = "Basel", onClick = { Log.i("clicked", "Basel") })
+            Button(
+                text = "Basel",
+                active = model.filterValue.value == "Basel",
+                onClick = { model.filterValue.value = "Basel"; model.filter() })
             Spacer(modifier = Modifier.weight(1f))
 
         }
@@ -63,6 +76,8 @@ fun CinemasScreen(
 
 @Composable
 fun CinemaInfo(cinema: Cinema) {
+    var url = cinema.website
+    val address = "${cinema.street}, ${cinema.postcode} ${cinema.city}"
     Row(
         Modifier
             .padding()
@@ -76,14 +91,18 @@ fun CinemaInfo(cinema: Cinema) {
                 .weight(0.9f)
         ) {
             Text(text = cinema.name ?: "no name", fontWeight = FontWeight.Bold, fontSize = 20.sp)
-            Text(text = cinema.city ?: "no address", fontStyle = FontStyle.Italic)
+            Text(text = address ?: "no address", fontStyle = FontStyle.Italic)
 
         }
         Modifier.clickable { }
         Column(
             Modifier
                 .fillMaxWidth()
-                .weight(0.1f).clickable { Log.i("Logo", "clicked") }
+                .weight(0.1f)
+                .clickable { Log.i("Open website", "clicked") }
+            /*
+                            .clickable { openUrl(cinema.website)}
+            */
         ) {
             Image(
                 painter = painterResource(R.drawable.icon),
@@ -92,5 +111,18 @@ fun CinemaInfo(cinema: Cinema) {
             )
         }
 
+    }
+}
+
+
+@Composable
+fun openUrl(url: String?) {
+    var betterUrl = url
+    if (!betterUrl.isNullOrEmpty() && !betterUrl.startsWith("http://") && !betterUrl.startsWith("https://")) {
+        betterUrl = "http://$url"
+    }
+    if (!betterUrl.isNullOrEmpty()) {
+        val uriHandler = LocalUriHandler.current
+        uriHandler.openUri(betterUrl)
     }
 }
