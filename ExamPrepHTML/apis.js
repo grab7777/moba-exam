@@ -72,12 +72,9 @@ function startMotion() {
       "devicemotion",
       function (e) {
         const element = document.getElementById("motion-element");
-        const barX = document.getElementById("motion-bar-x");
-        const barY = document.getElementById("motion-bar-y");
+        adjustWidth(Date.now(), e.acceleration.x, e.acceleration.y);
         const x = parseFloat(e.acceleration.x).toFixed(3);
         const y = parseFloat(e.acceleration.y).toFixed(3);
-        barX.style.width = Math.min(e.acceleration.x * 40, 200) + "px";
-        barY.style.width = Math.min(e.acceleration.y * 40, 200) + "px";
         xPretty = x >= 0 ? "+" + x : x;
         yPretty = y >= 0 ? "+" + y : y;
         element.textContent = `x: ${xPretty}, y: ${yPretty}`;
@@ -86,3 +83,13 @@ function startMotion() {
     );
   }
 }
+
+function adjustWidth(timestamp, x, y) {
+  const barX = document.getElementById("motion-bar-x");
+  const barY = document.getElementById("motion-bar-y");
+  barX.style.width = Math.min(x * 40, 200) + "px";
+  barY.style.width = Math.min(y * 40, 200) + "px";
+  requestAnimationFrame(adjustWidth);
+}
+
+requestAnimationFrame(adjustWidth);
